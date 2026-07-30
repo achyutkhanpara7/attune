@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #F7F3EC; color: #33322E; font-family: "Inter", system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #E8674C; text-decoration: none; background-image: linear-gradient(currentColor, currentColor); background-repeat: no-repeat; background-position: 0 100%; background-size: 0% 1px; transition: background-size .32s cubic-bezier(.22,.61,.36,1), color .2s; padding-bottom: 2px; }
+  a:hover { color: #F08874; background-size: 100% 1px; }
+  @keyframes revealIn { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+  @media (max-width: 900px) {
+    [data-resp="hero"] { padding-top: 118px !important; }
+    [data-resp="grid-4"], [data-resp="grid-3"], [data-resp="grid-2"] { grid-template-columns: 1fr !important; }
+    [data-resp="logo-wall"] { grid-template-columns: repeat(2,1fr) !important; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+</helmet>
+
+<dc-import name="AttuneNav" hint-size="100%,74px"></dc-import>
+
+<header data-resp="hero" style="position: relative; overflow: hidden; padding: 170px 40px 110px; background: radial-gradient(70% 100% at 15% 0%, #1B4238 0%, #14312A 50%, #0C1E19 100%); color: #F7F3EC;">
+  <div style="position: absolute; inset: 0; opacity: .45; background: radial-gradient(34% 44% at 84% 30%, rgba(62,124,106,.5), transparent 70%), radial-gradient(28% 36% at 40% 96%, rgba(232,103,76,.3), transparent 70%);"></div>
+  <div style="position: relative; max-width: 780px;">
+    <span style="display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #3E7C6A; margin-bottom: 22px; animation: revealIn .8s cubic-bezier(.22,.61,.36,1) .05s both;">Customers</span>
+    <h1 style="font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-weight: 500; font-size: clamp(44px,6vw,86px); line-height: 1; letter-spacing: -.02em; margin: 0 0 24px; animation: revealIn .8s cubic-bezier(.22,.61,.36,1) .14s both;">Proof, not <span style="color: #E8674C; font-style: italic;">promises</span>.</h1>
+    <p style="font-size: clamp(17px,1.5vw,20px); line-height: 1.55; color: rgba(247,243,236,.82); max-width: 540px; margin: 0; animation: revealIn .8s cubic-bezier(.22,.61,.36,1) .26s both;">Every program ships with a measurement plan. These are the numbers our customers took to their boards.</p>
+  </div>
+</header>
+
+<section style="position: relative; overflow: hidden; padding: 120px 40px; color: #F7F3EC;">
+  <div style="position: absolute; inset: 0; background: #14312A url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&h=1080&q=80') center/cover no-repeat; filter: saturate(.72) contrast(1.03);">
+    <video ref="{{ videoRef }}" data-hero-video="1" poster="https://images.pexels.com/videos/3255384/free-video-3255384.jpg?auto=compress&cs=tinysrgb&w=1200" autoPlay="autoplay" muted="muted" loop="loop" playsInline="playsinline" preload="auto" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      <source src="https://videos.pexels.com/video-files/3255384/3255384-uhd_2560_1440_25fps.mp4" type="video/mp4" />
+    </video>
+  </div>
+  <div style="position: absolute; inset: 0; background: linear-gradient(100deg, rgba(12,30,25,.95), rgba(12,30,25,.66));"></div>
+  <div data-resp="grid-2" style="position: relative; display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center;">
+    <div>
+      <div style="font-family: 'Fraunces', Georgia, serif; font-size: 21px; font-weight: 600; color: rgba(247,243,236,.7); margin-bottom: 18px;">Orbital</div>
+      <h2 style="font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-weight: 500; font-size: clamp(34px,4.4vw,58px); line-height: 1.04; letter-spacing: -.02em; margin: 0 0 22px;">Orbital shifted the performance curve <span style="color: #E8674C;">+15%</span>.</h2>
+      <p style="font-size: 18px; line-height: 1.6; color: rgba(247,243,236,.82); margin: 0 0 26px; max-width: 520px;">Forty product directors, two quarters of Guide plus Flow, and a measurement plan agreed with finance before the first session.</p>
+      <a href="#" style="font-weight: 600; font-size: 16px;">Read the case study →</a>
+    </div>
+    <div style="background: rgba(247,243,236,.07); backdrop-filter: blur(20px) saturate(140%); -webkit-backdrop-filter: blur(20px) saturate(140%); border: 1px solid rgba(247,243,236,.18); border-radius: 26px; padding: 34px; box-shadow: 0 40px 90px -50px rgba(0,0,0,.8), inset 0 1px 0 rgba(247,243,236,.16); display: grid; gap: 22px;">
+      <div>
+        <div style="font-family: 'Fraunces', Georgia, serif; font-size: 40px; font-weight: 500; color: #E8674C; line-height: 1;"><span data-count="15" data-suffix="%">0</span></div>
+        <div style="font-size: 15px; color: rgba(247,243,236,.75); margin-top: 6px;">performance rating lift</div>
+      </div>
+      <div style="height: 1px; background: rgba(247,243,236,.16);"></div>
+      <div>
+        <div style="font-family: 'Fraunces', Georgia, serif; font-size: 40px; font-weight: 500; color: #F7F3EC; line-height: 1;"><span data-count="92" data-suffix="%">0</span></div>
+        <div style="font-size: 15px; color: rgba(247,243,236,.75); margin-top: 6px;">program completion</div>
+      </div>
+      <div style="height: 1px; background: rgba(247,243,236,.16);"></div>
+      <div>
+        <div style="font-family: 'Fraunces', Georgia, serif; font-size: 40px; font-weight: 500; color: #F7F3EC; line-height: 1;"><span data-count="2" data-suffix=" quarters">0</span></div>
+        <div style="font-size: 15px; color: rgba(247,243,236,.75); margin-top: 6px;">to measurable change</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background: #F7F3EC; padding: 96px 40px;">
+  <div data-resp="grid-4" style="display: grid; grid-template-columns: repeat(4,1fr); gap: 28px;">
+    <div data-reveal="1" data-io-delay="0s" style="opacity: 0; border-top: 2px solid #E8674C; padding-top: 22px;">
+      <div style="font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(36px,4vw,54px); line-height: 1; color: #14312A;"><span data-count="12" data-suffix="x">0</span></div>
+      <div style="font-size: 15px; color: #57544d; margin-top: 10px;">average ROI</div>
+    </div>
+    <div data-reveal="1" data-io-delay=".08s" style="opacity: 0; border-top: 2px solid #3E7C6A; padding-top: 22px;">
+      <div style="font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(36px,4vw,54px); line-height: 1; color: #14312A;"><span data-count="43" data-suffix="%">0</span></div>
+      <div style="font-size: 15px; color: #57544d; margin-top: 10px;">more top performers</div>
+    </div>
+    <div data-reveal="1" data-io-delay=".16s" style="opacity: 0; border-top: 2px solid #3E7C6A; padding-top: 22px;">
+      <div style="font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(36px,4vw,54px); line-height: 1; color: #14312A;"><span data-count="2.4" data-decimals="1" data-suffix="x">0</span></div>
+      <div style="font-size: 15px; color: #57544d; margin-top: 10px;">faster manager ramp</div>
+    </div>
+    <div data-reveal="1" data-io-delay=".24s" style="opacity: 0; border-top: 2px solid #3E7C6A; padding-top: 22px;">
+      <div style="font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: clamp(36px,4vw,54px); line-height: 1; color: #14312A;"><span data-count="38" data-suffix="%">0</span></div>
+      <div style="font-size: 15px; color: #57544d; margin-top: 10px;">less regretted attrition</div>
+    </div>
+  </div>
+  <div style="font-size: 13px; color: #9A9488; margin-top: 30px;">Figures are illustrative.</div>
+</section>
+
+<section style="background: #EDE4D6; padding: 90px 40px;">
+  <div data-resp="logo-wall" style="display: grid; grid-template-columns: repeat(6,1fr); gap: 16px;">
+    <span style="display: flex; align-items: center; justify-content: center; height: 92px; border-radius: 18px; background: rgba(255,255,255,.66); border: 1px solid rgba(255,255,255,.8); font-family: 'Fraunces', Georgia, serif; font-size: 18px; font-weight: 600; color: #14312A;">Northwind</span>
+    <span style="display: flex; align-items: center; justify-content: center; height: 92px; border-radius: 18px; background: rgba(255,255,255,.66); border: 1px solid rgba(255,255,255,.8); font-family: 'Fraunces', Georgia, serif; font-size: 18px; font-weight: 600; color: #14312A;">Vela Health</span>
+    <span style="display: flex; align-items: center; justify-content: center; height: 92px; border-radius: 18px; background: rgba(255,255,255,.66); border: 1px solid rgba(255,255,255,.8); font-family: 'Fraunces', Georgia, serif; font-size: 18px; font-weight: 600; color: #14312A;">Orbital</span>
+    <span style="display: flex; align-items: center; justify-content: center; height: 92px; border-radius: 18px; background: rgba(255,255,255,.66); border: 1px solid rgba(255,255,255,.8); font-family: 'Fraunces', Georgia, serif; font-size: 18px; font-weight: 600; color: #14312A;">Kestrel Bank</span>
+    <span style="display: flex; align-items: center; justify-content: center; height: 92px; border-radius: 18px; background: rgba(255,255,255,.66); border: 1px solid rgba(255,255,255,.8); font-family: 'Fraunces', Georgia, serif; font-size: 18px; font-weight: 600; color: #14312A;">Lumina</span>
+    <span style="display: flex; align-items: center; justify-content: center; height: 92px; border-radius: 18px; background: rgba(255,255,255,.66); border: 1px solid rgba(255,255,255,.8); font-family: 'Fraunces', Georgia, serif; font-size: 18px; font-weight: 600; color: #14312A;">Foundry</span>
+  </div>
+</section>
+
+<section style="background: #F7F3EC; padding: 110px 40px;">
+  <blockquote data-reveal="1" style="opacity: 0; margin: 0; max-width: 900px;">
+    <p style="font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-weight: 400; font-style: italic; font-size: clamp(30px,3.8vw,50px); line-height: 1.15; letter-spacing: -.02em; color: #14312A; margin: 0 0 28px; text-wrap: pretty;">“My coach felt hand-picked. Because she was.”</p>
+    <footer style="display: flex; align-items: center; gap: 14px;">
+      <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=160&h=160&q=80" alt="" style="width: 46px; height: 46px; border-radius: 50%; object-fit: cover;" />
+      <span style="font-size: 16px; color: #57544d;">VP Engineering · Orbital</span>
+    </footer>
+  </blockquote>
+</section>
+
+<section style="background: #F7F3EC; padding: 0 40px 110px;">
+  <h2 data-reveal="1" style="opacity: 0; font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-weight: 500; font-size: clamp(34px,4vw,52px); line-height: 1.02; letter-spacing: -.02em; color: #14312A; margin: 0 0 48px; max-width: 560px;">More results.</h2>
+  <div data-resp="grid-3" style="display: grid; grid-template-columns: repeat(3,1fr); gap: 24px;">
+    <a href="#" data-reveal="1" data-io-delay="0s" style="opacity: 0; display: block; color: #33322E; background-image: none; padding-bottom: 0; background: linear-gradient(155deg, rgba(255,255,255,.92), rgba(237,228,214,.55)); border: 1px solid rgba(255,255,255,.75); border-radius: 20px; padding: 28px 26px; box-shadow: 0 20px 50px -34px rgba(20,49,42,.5); transition: transform .3s cubic-bezier(.22,.61,.36,1), box-shadow .3s;" style-hover="transform: translateY(-6px); box-shadow: 0 32px 60px -28px rgba(20,49,42,.45);">
+      <div style="font-family: 'Fraunces', Georgia, serif; font-size: 17px; font-weight: 600; color: #9A9488; margin-bottom: 18px;">Vela Health</div>
+      <div style="font-family: 'Fraunces', Georgia, serif; font-size: 40px; font-weight: 500; color: #E8674C; line-height: 1;">21%</div>
+      <p style="font-size: 15px; line-height: 1.55; color: #57544d; margin: 12px 0 18px;">Frontline productivity up while manager ramp time halved.</p>
+      <span style="font-weight: 600; font-size: 15px; color: #E8674C;">Read story →</span>
+    </a>
+    <a href="#" data-reveal="1" data-io-delay=".08s" style="opacity: 0; display: block; color: #33322E; background-image: none; padding-bottom: 0; background: linear-gradient(155deg, rgba(255,255,255,.92), rgba(237,228,214,.55)); border: 1px solid rgba(255,255,255,.75); border-radius: 20px; padding: 28px 26px; box-shadow: 0 20px 50px -34px rgba(20,49,42,.5); transition: transform .3s cubic-bezier(.22,.61,.36,1), box-shadow .3s;" style-hover="transform: translateY(-6px); box-shadow: 0 32px 60px -28px rgba(20,49,42,.45);">
+      <div style="font-family: 'Fraunces', Georgia, serif; font-size: 17px; font-weight: 600; color: #9A9488; margin-bottom: 18px;">Kestrel Bank</div>
+      <div style="font-family: 'Fraunces', Georgia, serif; font-size: 40px; font-weight: 500; color: #E8674C; line-height: 1;">38%</div>
+      <p style="font-size: 15px; line-height: 1.55; color: #57544d; margin: 12px 0 18px;">Regretted attrition down across two divisions.</p>
+      <span style="font-weight: 600; font-size: 15px; color: #E8674C;">Read story →</span>
+    </a>
+    <a href="#" data-reveal="1" data-io-delay=".16s" style="opacity: 0; display: block; color: #33322E; background-image: none; padding-bottom: 0; background: linear-gradient(155deg, rgba(255,255,255,.92), rgba(237,228,214,.55)); border: 1px solid rgba(255,255,255,.75); border-radius: 20px; padding: 28px 26px; box-shadow: 0 20px 50px -34px rgba(20,49,42,.5); transition: transform .3s cubic-bezier(.22,.61,.36,1), box-shadow .3s;" style-hover="transform: translateY(-6px); box-shadow: 0 32px 60px -28px rgba(20,49,42,.45);">
+      <div style="font-family: 'Fraunces', Georgia, serif; font-size: 17px; font-weight: 600; color: #9A9488; margin-bottom: 18px;">Northwind</div>
+      <div style="font-family: 'Fraunces', Georgia, serif; font-size: 40px; font-weight: 500; color: #E8674C; line-height: 1;">1.5x</div>
+      <p style="font-size: 15px; line-height: 1.55; color: #57544d; margin: 12px 0 18px;">Internal promotion rate for coached managers.</p>
+      <span style="font-weight: 600; font-size: 15px; color: #E8674C;">Read story →</span>
+    </a>
+    <a href="#" data-reveal="1" data-io-delay=".24s" style="opacity: 0; display: block; color: #33322E; background-image: none; padding-bottom: 0; background: linear-gradient(155deg, rgba(255,255,255,.92), rgba(237,228,214,.55)); border: 1px solid rgba(255,255,255,.75); border-radius: 20px; padding: 28px 26px; box-shadow: 0 20px 50px -34px rgba(20,49,42,.5); transition: transform .3s cubic-bezier(.22,.61,.36,1), box-shadow .3s;" style-hover="transform: translateY(-6px); box-shadow: 0 32px 60px -28px rgba(20,49,42,.45);">
+      <div style="font-family: 'Fraunces', Georgia, serif; font-size: 17px; font-weight: 600; color: #9A9488; margin-bottom: 18px;">Lumina</div>
+      <div style="font-family: 'Fraunces', Georgia, serif; font-size: 40px; font-weight: 500; color: #E8674C; line-height: 1;">76%</div>
+      <p style="font-size: 15px; line-height: 1.55; color: #57544d; margin: 12px 0 18px;">Monthly active adoption of Flow across 9,000 staff.</p>
+      <span style="font-weight: 600; font-size: 15px; color: #E8674C;">Read story →</span>
+    </a>
+    <a href="#" data-reveal="1" data-io-delay=".32s" style="opacity: 0; display: block; color: #33322E; background-image: none; padding-bottom: 0; background: linear-gradient(155deg, rgba(255,255,255,.92), rgba(237,228,214,.55)); border: 1px solid rgba(255,255,255,.75); border-radius: 20px; padding: 28px 26px; box-shadow: 0 20px 50px -34px rgba(20,49,42,.5); transition: transform .3s cubic-bezier(.22,.61,.36,1), box-shadow .3s;" style-hover="transform: translateY(-6px); box-shadow: 0 32px 60px -28px rgba(20,49,42,.45);">
+      <div style="font-family: 'Fraunces', Georgia, serif; font-size: 17px; font-weight: 600; color: #9A9488; margin-bottom: 18px;">Foundry</div>
+      <div style="font-family: 'Fraunces', Georgia, serif; font-size: 40px; font-weight: 500; color: #E8674C; line-height: 1;">31%</div>
+      <p style="font-size: 15px; line-height: 1.55; color: #57544d; margin: 12px 0 18px;">Higher decision confidence among senior leaders.</p>
+      <span style="font-weight: 600; font-size: 15px; color: #E8674C;">Read story →</span>
+    </a>
+    <a href="#" data-reveal="1" data-io-delay=".4s" style="opacity: 0; display: block; color: #33322E; background-image: none; padding-bottom: 0; background: linear-gradient(155deg, rgba(255,255,255,.92), rgba(237,228,214,.55)); border: 1px solid rgba(255,255,255,.75); border-radius: 20px; padding: 28px 26px; box-shadow: 0 20px 50px -34px rgba(20,49,42,.5); transition: transform .3s cubic-bezier(.22,.61,.36,1), box-shadow .3s;" style-hover="transform: translateY(-6px); box-shadow: 0 32px 60px -28px rgba(20,49,42,.45);">
+      <div style="font-family: 'Fraunces', Georgia, serif; font-size: 17px; font-weight: 600; color: #9A9488; margin-bottom: 18px;">Public agency</div>
+      <div style="font-family: 'Fraunces', Georgia, serif; font-size: 40px; font-weight: 500; color: #E8674C; line-height: 1;">11 wks</div>
+      <p style="font-size: 15px; line-height: 1.55; color: #57544d; margin: 12px 0 18px;">Cut from the ramp time of newly appointed supervisors.</p>
+      <span style="font-weight: 600; font-size: 15px; color: #E8674C;">Read story →</span>
+    </a>
+  </div>
+  <div style="font-size: 13px; color: #9A9488; margin-top: 30px;">Figures are illustrative.</div>
+</section>
+
+<section style="position: relative; background: #14312A; color: #F7F3EC; padding: 130px 40px; overflow: hidden;">
+  <div style="position: absolute; inset: 0; opacity: .18; background: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1920&h=900&q=80') center/cover no-repeat;"></div>
+  <div style="position: absolute; inset: 0; background: linear-gradient(100deg, rgba(20,49,42,.96), rgba(20,49,42,.6));"></div>
+  <div data-reveal="1" style="opacity: 0; position: relative; max-width: 820px; background: rgba(247,243,236,.07); backdrop-filter: blur(20px) saturate(140%); -webkit-backdrop-filter: blur(20px) saturate(140%); border: 1px solid rgba(247,243,236,.18); border-radius: 28px; padding: 52px 48px; box-shadow: 0 40px 90px -50px rgba(0,0,0,.8), inset 0 1px 0 rgba(247,243,236,.16);">
+    <h2 style="font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-weight: 500; font-size: clamp(38px,4.6vw,60px); line-height: 1.02; letter-spacing: -.02em; margin: 0 0 32px;">Build your own proof.</h2>
+    <button style="background: #E8674C; color: #fff; border: none; border-radius: 999px; padding: 15px 30px; font-family: inherit; font-weight: 600; font-size: 16px; cursor: pointer; transition: transform .2s cubic-bezier(.22,.61,.36,1), filter .2s;" style-hover="transform: translateY(-2px); filter: brightness(1.06);">Request a demo</button>
+  </div>
+</section>
+
+<dc-import name="AttuneFooter" hint-size="100%,420px"></dc-import>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.videoRef = React.createRef();
+  }
+
+  componentDidMount() {
+    const v = this.videoRef && this.videoRef.current;
+    if (v) {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        v.style.display = "none";
+      } else {
+        v.muted = true;
+        v.addEventListener("error", () => { v.style.display = "none"; }, { once: true });
+        v.addEventListener("playing", () => { v.style.display = "block"; });
+        const p = v.play();
+        if (p && p.catch) p.catch(() => { v.style.display = "none"; });
+      }
+    }
+
+    this.io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        this.io.unobserve(e.target);
+        if (e.target.hasAttribute("data-count")) return this.countUp(e.target);
+        e.target.style.animation = "revealIn .8s cubic-bezier(.22,.61,.36,1) " + (e.target.getAttribute("data-io-delay") || "0s") + " both";
+      });
+    }, { threshold: 0.2 });
+    setTimeout(() => {
+      document.querySelectorAll("[data-count],[data-reveal]").forEach((el) => this.io.observe(el));
+    }, 60);
+    this.safety = setTimeout(() => {
+      document.querySelectorAll("[data-reveal]").forEach((el) => {
+        if (getComputedStyle(el).opacity === "0") el.style.animation = "revealIn .8s cubic-bezier(.22,.61,.36,1) both";
+      });
+    }, 3000);
+  }
+
+  componentWillUnmount() {
+    if (this.io) this.io.disconnect();
+    clearTimeout(this.safety);
+  }
+
+  countUp(el) {
+    const target = parseFloat(el.getAttribute("data-count"));
+    const dec = parseInt(el.getAttribute("data-decimals") || "0", 10);
+    const suffix = el.getAttribute("data-suffix") || "";
+    const dur = 1400, t0 = performance.now();
+    const tick = (t) => {
+      const p = Math.min(1, (t - t0) / dur);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = (target * eased).toFixed(dec) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+
+  renderVals() { return { videoRef: this.videoRef }; }
+}
+
+</script>
+</body>
+</html>

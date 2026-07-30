@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Attune — Cinematic Hero (technique reference)</title>
+
+<!-- FONTS: Fraunces (display serif) + Inter (body/UI). Fallback stacks in CSS if these are blocked. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   ATTUNE — DESIGN TOKENS
+   ============================================================ */
+:root{
+  --ivory:#F7F3EC;
+  --pine:#14312A;
+  --pine-deep:#0C1E19;   /* darker pine for the hero gradient floor */
+  --ember:#E8674C;
+  --jade:#3E7C6A;
+  --sand:#EDE4D6;
+  --charcoal:#33322E;
+  --mist:#9A9488;
+
+  --font-display:"Fraunces", Georgia, "Times New Roman", serif;
+  --font-body:"Inter", system-ui, -apple-system, sans-serif;
+
+  --ease:cubic-bezier(.22,.61,.36,1);   /* smooth, no bounce */
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);
+  color:var(--ivory);
+  background:var(--pine-deep);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav{
+  position:fixed; top:0; left:0; right:0; z-index:50;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:20px 40px;
+  background:linear-gradient(to bottom, rgba(12,30,25,.7), rgba(12,30,25,0));
+  backdrop-filter:blur(2px);
+}
+.logo{font-family:var(--font-display); font-weight:600; font-size:24px; letter-spacing:-.02em; color:var(--ivory)}
+.nav-links{display:flex; gap:32px; list-style:none}
+.nav-links a{color:rgba(247,243,236,.82); text-decoration:none; font-size:15px; font-weight:500; transition:color .2s}
+.nav-links a:hover{color:var(--ivory)}
+.nav-right{display:flex; align-items:center; gap:24px}
+.nav-right .login{color:rgba(247,243,236,.82); text-decoration:none; font-size:15px; font-weight:500}
+.btn-demo{
+  background:var(--ember); color:#fff; border:none; border-radius:999px;
+  padding:11px 22px; font-family:var(--font-body); font-weight:600; font-size:15px;
+  cursor:pointer; transition:transform .2s var(--ease), filter .2s;
+}
+.btn-demo:hover{transform:translateY(-1px); filter:brightness(1.05)}
+
+/* ============================================================
+   HERO — the layered, cinematic section
+   Stacking order (low z → high z):
+   0 media bg  →  1 aurora  →  2 marquee  →  3 scrim  →  4 content/cards
+   ============================================================ */
+.hero{
+  position:relative; min-height:100vh; overflow:hidden;
+  display:flex; align-items:center;
+  padding:120px 40px 60px;
+}
+
+/* --- LAYER 0: background media with a slow Ken-Burns zoom ---
+   Swap the picsum URL for real coaching photography (Unsplash/Pexels).
+   Grayscale + pine multiply keeps ANY photo cohesive with the brand. */
+.hero-media{
+  position:absolute; inset:-6% ;            /* slight overscan so the zoom never shows edges */
+  z-index:0;
+  background:#0C1E19 url("https://picsum.photos/seed/attunehero/1920/1080?grayscale") center/cover no-repeat;
+  animation:kenburns 22s var(--ease) infinite alternate;
+  will-change:transform;
+}
+@keyframes kenburns{ from{transform:scale(1.0)} to{transform:scale(1.12)} }
+
+/* --- OPTIONAL REAL VIDEO instead of the image ---
+   Uncomment, add a muted looping .mp4 (Coverr / Mixkit / Pexels), and
+   hide .hero-media. Keep it <4MB and add a poster image.
+<video class="hero-video" autoplay muted loop playsinline poster="poster.jpg">
+  <source src="your-broll.mp4" type="video/mp4">
+</video>
+.hero-video{position:absolute; inset:0; z-index:0; width:100%; height:100%; object-fit:cover;}
+*/
+
+/* --- LAYER 1: ambient aurora (warm jade/ember drift) for life without a video --- */
+.hero-aurora{
+  position:absolute; inset:0; z-index:1; opacity:.5; mix-blend-mode:screen;
+  background:
+    radial-gradient(40% 50% at 20% 30%, rgba(62,124,106,.55), transparent 70%),
+    radial-gradient(35% 45% at 80% 70%, rgba(232,103,76,.35), transparent 70%);
+  animation:drift 18s ease-in-out infinite alternate;
+}
+@keyframes drift{ from{transform:translate3d(-2%,-1%,0) scale(1)} to{transform:translate3d(3%,2%,0) scale(1.1)} }
+
+/* --- LAYER 2: ambient photo MARQUEE (right third) ---
+   A duplicated column translated on a loop = seamless infinite scroll.
+   Blurred + low opacity so it reads as texture, not content. */
+.marquee{
+  position:absolute; top:0; right:4%; z-index:2; height:100%; width:300px;
+  -webkit-mask-image:linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
+          mask-image:linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
+  overflow:hidden; opacity:.55;
+}
+.marquee-track{display:flex; flex-direction:column; gap:18px; animation:marquee 32s linear infinite; will-change:transform}
+.marquee img{
+  width:300px; height:380px; object-fit:cover; border-radius:14px;
+  filter:grayscale(1) brightness(.8) blur(.4px); flex-shrink:0;
+}
+@keyframes marquee{ from{transform:translateY(0)} to{transform:translateY(-50%)} } /* -50% because the set is duplicated */
+
+/* --- LAYER 3: dark scrim so text always clears AA contrast over media --- */
+.hero-scrim{
+  position:absolute; inset:0; z-index:3;
+  background:
+    linear-gradient(105deg, rgba(12,30,25,.94) 0%, rgba(12,30,25,.78) 42%, rgba(12,30,25,.35) 100%),
+    linear-gradient(to top, rgba(12,30,25,.9), transparent 45%);
+}
+
+/* --- LAYER 4: foreground content --- */
+.hero-content{position:relative; z-index:4; max-width:720px}
+
+.kicker{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--jade); margin-bottom:24px;
+}
+.kicker::before{content:""; width:26px; height:1px; background:var(--jade)}
+
+.hero h1{
+  font-family:var(--font-display); font-weight:500;
+  font-size:clamp(44px, 6.2vw, 88px); line-height:.98; letter-spacing:-.02em;
+  margin-bottom:26px;
+}
+/* the cycling word */
+.rotator{color:var(--ember); font-style:italic; display:inline-block; min-width:4ch}
+.rotator .word{display:inline-block; animation:wordIn .5s var(--ease)}
+@keyframes wordIn{ from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:translateY(0)} }
+
+.hero p.sub{
+  font-size:clamp(17px,1.5vw,20px); line-height:1.5; color:rgba(247,243,236,.82);
+  max-width:540px; margin-bottom:36px;
+}
+.hero-ctas{display:flex; gap:16px; flex-wrap:wrap}
+.btn-primary{
+  background:var(--ember); color:#fff; border:none; border-radius:999px;
+  padding:15px 30px; font-family:var(--font-body); font-weight:600; font-size:16px;
+  cursor:pointer; transition:transform .2s var(--ease), filter .2s;
+}
+.btn-primary:hover{transform:translateY(-2px); filter:brightness(1.06)}
+.btn-ghost{
+  background:transparent; color:var(--ivory); border:1px solid rgba(247,243,236,.35);
+  border-radius:999px; padding:15px 28px; font-family:var(--font-body); font-weight:600; font-size:16px;
+  cursor:pointer; transition:border-color .2s, background .2s;
+}
+.btn-ghost:hover{border-color:var(--ivory); background:rgba(247,243,236,.06)}
+
+/* --- LAYER 4b: floating glass UI cards --- */
+.float-card{
+  position:absolute; z-index:4;
+  background:rgba(20,49,42,.55); backdrop-filter:blur(14px);
+  border:1px solid rgba(247,243,236,.14); border-radius:18px;
+  box-shadow:0 24px 60px -20px rgba(0,0,0,.6);
+  padding:18px 20px; color:var(--ivory);
+}
+.card-session{ right:9%; top:24%; width:250px; transform:rotate(-3deg); animation:floaty 7s ease-in-out infinite}
+.card-progress{ right:22%; bottom:16%; width:190px; transform:rotate(2.5deg); animation:floaty 9s ease-in-out infinite reverse}
+@keyframes floaty{ 0%,100%{transform:translateY(0) rotate(var(--r,-3deg))} 50%{transform:translateY(-12px) rotate(var(--r,-3deg))} }
+.card-session{--r:-3deg} .card-progress{--r:2.5deg}
+
+.card-label{font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--jade); font-weight:600; margin-bottom:10px}
+.card-session .coach{display:flex; align-items:center; gap:12px}
+.card-session .avatar{width:40px; height:40px; border-radius:50%; object-fit:cover}
+.card-session .coach b{font-family:var(--font-display); font-weight:600; font-size:16px; display:block}
+.card-session .coach span{font-size:13px; color:rgba(247,243,236,.7)}
+.card-session .when{margin-top:12px; font-size:13px; color:rgba(247,243,236,.85); display:flex; align-items:center; gap:6px}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--ember)}
+
+.ring-wrap{display:flex; align-items:center; gap:14px}
+.ring-num{font-family:var(--font-display); font-size:26px; font-weight:600}
+.ring-cap{font-size:12px; color:rgba(247,243,236,.72); line-height:1.35}
+
+/* scroll cue */
+.scroll-cue{position:absolute; left:40px; bottom:28px; z-index:4; display:flex; align-items:center; gap:10px; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:rgba(247,243,236,.6)}
+.scroll-cue .bar{width:1px; height:34px; background:rgba(247,243,236,.4); position:relative; overflow:hidden}
+.scroll-cue .bar::after{content:""; position:absolute; top:0; left:0; width:100%; height:40%; background:var(--ember); animation:scrollcue 1.8s var(--ease) infinite}
+@keyframes scrollcue{0%{transform:translateY(-100%)}100%{transform:translateY(280%)}}
+
+/* ============================================================
+   PAGE-LOAD STAGGER
+   Elements start hidden; .is-in (added on load) reveals them,
+   with per-element --d delay driving the stagger.
+   ============================================================ */
+.reveal{opacity:0; transform:translateY(22px); transition:opacity .8s var(--ease), transform .8s var(--ease); transition-delay:var(--d,0s)}
+.reveal.is-in{opacity:1; transform:none}
+
+/* ============================================================
+   IVORY SECTION below — shows the dark→light transition.
+   Reveals on scroll via IntersectionObserver.
+   ============================================================ */
+.pillars{background:var(--ivory); color:var(--charcoal); padding:110px 40px}
+.pillars .eyebrow{font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--jade); margin-bottom:14px}
+.pillars h2{font-family:var(--font-display); font-weight:500; font-size:clamp(34px,4vw,52px); line-height:1.02; letter-spacing:-.02em; max-width:640px; margin-bottom:56px}
+.pillar-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px}
+.pillar{background:#fff; border:1px solid rgba(154,148,136,.2); border-radius:18px; padding:32px 28px; transition:transform .3s var(--ease), box-shadow .3s var(--ease)}
+.pillar:hover{transform:translateY(-4px); box-shadow:0 20px 44px -24px rgba(20,49,42,.35)}
+.pillar .icon{width:44px; height:44px; border-radius:12px; background:var(--sand); display:flex; align-items:center; justify-content:center; margin-bottom:20px; font-size:20px}
+.pillar h3{font-family:var(--font-display); font-weight:600; font-size:22px; margin-bottom:10px}
+.pillar h3 span{color:var(--jade)}
+.pillar p{font-size:15px; line-height:1.55; color:#57544d; margin-bottom:18px}
+.pillar a{color:var(--ember); text-decoration:none; font-weight:600; font-size:15px}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:900px){
+  .nav-links{display:none}
+  .marquee, .float-card{display:none}   /* keep mobile clean; motion lives on desktop */
+  .hero{padding-top:100px}
+  .pillar-grid{grid-template-columns:1fr}
+}
+
+/* ============================================================
+   ACCESSIBILITY: honor reduced-motion
+   ============================================================ */
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important; transition:none !important}
+  .reveal{opacity:1; transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="logo">Attune</div>
+  <ul class="nav-links">
+    <li><a href="#">Platform</a></li>
+    <li><a href="#">Solutions</a></li>
+    <li><a href="#">Customers</a></li>
+    <li><a href="#">Company</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="#" class="login">Login</a>
+    <button class="btn-demo">Request a demo</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <!-- L0 media -->
+  <div class="hero-media"></div>
+  <!-- L1 aurora -->
+  <div class="hero-aurora"></div>
+  <!-- L2 ambient marquee (duplicate the set for a seamless loop) -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <img src="https://picsum.photos/seed/att1/300/380" alt="">
+      <img src="https://picsum.photos/seed/att2/300/380" alt="">
+      <img src="https://picsum.photos/seed/att3/300/380" alt="">
+      <img src="https://picsum.photos/seed/att4/300/380" alt="">
+      <!-- duplicate -->
+      <img src="https://picsum.photos/seed/att1/300/380" alt="">
+      <img src="https://picsum.photos/seed/att2/300/380" alt="">
+      <img src="https://picsum.photos/seed/att3/300/380" alt="">
+      <img src="https://picsum.photos/seed/att4/300/380" alt="">
+    </div>
+  </div>
+  <!-- L3 scrim -->
+  <div class="hero-scrim"></div>
+
+  <!-- L4 content -->
+  <div class="hero-content">
+    <span class="kicker reveal" style="--d:.05s">Human + AI coaching</span>
+    <h1 class="reveal" style="--d:.15s">
+      Develop every<br>
+      <span class="rotator"><span class="word" id="rotator">person</span></span>,<br>
+      and prove it.
+    </h1>
+    <p class="sub reveal" style="--d:.3s">
+      Attune pairs world-class human coaches with always-on AI, then ties every
+      session to the metrics your CEO cares about.
+    </p>
+    <div class="hero-ctas reveal" style="--d:.42s">
+      <button class="btn-primary">See Attune in action</button>
+      <button class="btn-ghost">Watch the 2-min tour</button>
+    </div>
+  </div>
+
+  <!-- L4b floating cards -->
+  <div class="float-card card-session reveal" style="--d:.6s">
+    <div class="card-label">Next session</div>
+    <div class="coach">
+      <img class="avatar" src="https://picsum.photos/seed/coach/80/80" alt="">
+      <div><b>Dana Okoye</b><span>Leadership · Attune Guide</span></div>
+    </div>
+    <div class="when"><span class="dot"></span> Thursday, 2:00 PM</div>
+  </div>
+
+  <div class="float-card card-progress reveal" style="--d:.72s">
+    <div class="card-label">Goal progress</div>
+    <div class="ring-wrap">
+      <svg width="52" height="52" viewBox="0 0 52 52">
+        <circle cx="26" cy="26" r="22" fill="none" stroke="rgba(247,243,236,.18)" stroke-width="6"/>
+        <circle cx="26" cy="26" r="22" fill="none" stroke="#E8674C" stroke-width="6"
+                stroke-linecap="round" stroke-dasharray="138" stroke-dashoffset="41"
+                transform="rotate(-90 26 26)"/>
+      </svg>
+      <div><div class="ring-num">70%</div><div class="ring-cap">Executive presence</div></div>
+    </div>
+  </div>
+
+  <div class="scroll-cue"><span class="bar"></span> Scroll</div>
+</header>
+
+<!-- IVORY SECTION (dark → light transition; reveals on scroll) -->
+<section class="pillars">
+  <div class="eyebrow reveal">The platform</div>
+  <h2 class="reveal" style="--d:.08s">One platform. Three ways to grow.</h2>
+  <div class="pillar-grid">
+    <div class="pillar reveal" style="--d:.05s">
+      <div class="icon">◐</div>
+      <h3>Attune <span>Guide</span></h3>
+      <p>1:1 human coaching that builds the judgment and clarity your leaders and managers need.</p>
+      <a href="#">Learn more →</a>
+    </div>
+    <div class="pillar reveal" style="--d:.15s">
+      <div class="icon">✳</div>
+      <h3>Attune <span>Flow</span></h3>
+      <p>Always-on AI coaching that meets every employee in the moment, inside the tools they already use.</p>
+      <a href="#">Learn more →</a>
+    </div>
+    <div class="pillar reveal" style="--d:.25s">
+      <div class="icon">◈</div>
+      <h3>Attune <span>Signal</span></h3>
+      <p>Performance intelligence that connects every session to outcomes leadership can measure.</p>
+      <a href="#">Learn more →</a>
+    </div>
+  </div>
+</section>
+
+<script>
+/* ============================================================
+   1) KINETIC WORD CYCLER
+   ============================================================ */
+const words = ["person","leader","manager","team","maker"];
+let wi = 0;
+const rotEl = document.getElementById("rotator");
+setInterval(() => {
+  wi = (wi + 1) % words.length;
+  rotEl.textContent = words[wi];
+  rotEl.style.animation = "none";
+  void rotEl.offsetWidth;              // reflow to restart the animation
+  rotEl.style.animation = "wordIn .5s cubic-bezier(.22,.61,.36,1)";
+}, 2000);
+
+/* ============================================================
+   2) PAGE-LOAD STAGGER — add .is-in once the page is ready
+   ============================================================ */
+window.addEventListener("load", () => {
+  document.querySelectorAll(".hero .reveal").forEach(el => el.classList.add("is-in"));
+});
+
+/* ============================================================
+   3) SCROLL PARALLAX — background media moves slower than content.
+   requestAnimationFrame keeps it smooth; only touches transform.
+   ============================================================ */
+const media = document.querySelector(".hero-media");
+let ticking = false;
+window.addEventListener("scroll", () => {
+  if (!ticking) {
+    requestAnimationFrame(() => {
+      const y = window.scrollY;
+      if (y < window.innerHeight) media.style.transform = `translateY(${y * 0.35}px)`;
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
+
+/* ============================================================
+   4) SCROLL-TRIGGERED REVEAL for the ivory section
+   ============================================================ */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add("is-in"); io.unobserve(e.target); } });
+}, { threshold:.2 });
+document.querySelectorAll(".pillars .reveal").forEach(el => io.observe(el));
+</script>
+</body>
+</html>
