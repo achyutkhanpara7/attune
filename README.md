@@ -44,9 +44,8 @@ python3 -m http.server 8000
 ## Deploying
 
 `.github/workflows/pages.yml` publishes the repo root to GitHub Pages on every push to `main`
-(and to the current working branch), and can be run manually from the Actions tab.
-
-One-time setup: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+(and to the current working branch), and can be run manually from the Actions tab. The workflow
+enables Pages on its first run, so there's nothing to configure by hand.
 
 `.nojekyll` is present so Pages serves the files verbatim instead of running them through Jekyll.
 
