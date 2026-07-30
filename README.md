@@ -71,15 +71,17 @@ python3 -m http.server 8000
 
 The site is live at <https://achyutkhanpara7.github.io/attune/>.
 
-`.github/workflows/pages.yml` publishes the repo root to GitHub Pages on every push to one of
-the branches listed under `on.push.branches`, and can be run manually from the Actions tab.
-Add a branch to that list if you want it to deploy.
+`.github/workflows/pages.yml` publishes the repo root to GitHub Pages on every push to the
+default branch, and can be run manually from the Actions tab.
+
+Deploys only work from the default branch. The `github-pages` environment restricts which
+branches may deploy to it, so a run triggered from a feature branch is rejected at the
+environment gate before any step executes — it shows up as a failure with no job logs. Merge
+into the default branch to ship; widening `on.push.branches` on its own won't help.
 
 Pages is already switched on for the repo (**Settings → Pages → Build and deployment →
 Source: GitHub Actions**). That step is manual and one-time — creating the Pages site isn't
-something the built-in `GITHUB_TOKEN` is permitted to do. If the `github-pages` environment has
-a deployment branch rule, a push from a branch outside that rule builds but can't deploy; merge
-into the default branch instead.
+something the built-in `GITHUB_TOKEN` is permitted to do.
 
 `.nojekyll` is present so Pages serves the files verbatim instead of running them through Jekyll.
 
