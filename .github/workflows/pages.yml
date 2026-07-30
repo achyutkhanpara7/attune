@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - claude/github-project-hosting-kjui1f
+      - claude/github-code-update-28pxtv
   workflow_dispatch:
 
 permissions:

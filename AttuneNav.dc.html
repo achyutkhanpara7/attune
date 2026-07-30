@@ -28,7 +28,17 @@
       <li onMouseEnter="{{ openProducts }}"><button onClick="{{ toggleProducts }}" aria-haspopup="true" aria-expanded="{{ isProducts }}" style="background: none; border: none; padding: 6px 0; font-family: inherit; font-size: 15px; font-weight: 500; color: rgba(247,243,236,.82); cursor: pointer; transition: color .2s;" style-hover="color: #F7F3EC;">Products</button></li>
       <li onMouseEnter="{{ openSolutions }}"><button onClick="{{ toggleSolutions }}" aria-haspopup="true" aria-expanded="{{ isSolutions }}" style="background: none; border: none; padding: 6px 0; font-family: inherit; font-size: 15px; font-weight: 500; color: rgba(247,243,236,.82); cursor: pointer; transition: color .2s;" style-hover="color: #F7F3EC;">Solutions</button></li>
       <li onMouseEnter="{{ openCustomers }}"><button onClick="{{ toggleCustomers }}" aria-haspopup="true" aria-expanded="{{ isCustomers }}" style="background: none; border: none; padding: 6px 0; font-family: inherit; font-size: 15px; font-weight: 500; color: rgba(247,243,236,.82); cursor: pointer; transition: color .2s;" style-hover="color: #F7F3EC;">Customers</button></li>
-      <li onMouseEnter="{{ openCompany }}"><button onClick="{{ toggleCompany }}" aria-haspopup="true" aria-expanded="{{ isCompany }}" style="background: none; border: none; padding: 6px 0; font-family: inherit; font-size: 15px; font-weight: 500; color: rgba(247,243,236,.82); cursor: pointer; transition: color .2s;" style-hover="color: #F7F3EC;">Company</button></li>
+      <li onMouseEnter="{{ openCompany }}" onMouseLeave="{{ scheduleClose }}" style="position: relative;">
+        <button onClick="{{ toggleCompany }}" aria-haspopup="true" aria-expanded="{{ isCompany }}" style="background: none; border: none; padding: 6px 0; font-family: inherit; font-size: 15px; font-weight: 500; color: rgba(247,243,236,.82); cursor: pointer; transition: color .2s;" style-hover="color: #F7F3EC;">Company</button>
+        <sc-if value="{{ isCompany }}" hint-placeholder-val="{{ false }}">
+        <div onMouseEnter="{{ cancelClose }}" onMouseLeave="{{ scheduleClose }}" data-nav-desktop style="position: absolute; top: calc(100% + 20px); left: 50%; margin-left: -130px; width: 260px; padding: 14px; border-radius: 20px; background: rgba(20,49,42,.94); backdrop-filter: blur(22px) saturate(140%); -webkit-backdrop-filter: blur(22px) saturate(140%); border: 1px solid rgba(247,243,236,.16); box-shadow: 0 40px 90px -40px rgba(0,0,0,.85); animation: navPanelIn .15s cubic-bezier(.22,.61,.36,1) both; display: grid; gap: 2px;">
+        <a href="#" style="padding: 11px 14px; border-radius: 12px; color: #F7F3EC; font-size: 15px; background-image: none; padding-bottom: 11px; transition: background .2s;" style-hover="background: rgba(247,243,236,.07);">About</a>
+        <a href="#" style="padding: 11px 14px; border-radius: 12px; color: #F7F3EC; font-size: 15px; background-image: none; padding-bottom: 11px; transition: background .2s;" style-hover="background: rgba(247,243,236,.07);">Coaches</a>
+        <a href="#" style="padding: 11px 14px; border-radius: 12px; color: #F7F3EC; font-size: 15px; background-image: none; padding-bottom: 11px; transition: background .2s;" style-hover="background: rgba(247,243,236,.07);">Careers</a>
+        <a href="#" style="padding: 11px 14px; border-radius: 12px; color: #F7F3EC; font-size: 15px; background-image: none; padding-bottom: 11px; transition: background .2s;" style-hover="background: rgba(247,243,236,.07);">Newsroom</a>
+        </div>
+        </sc-if>
+      </li>
     </ul>
 
     <div data-nav-desktop style="display: flex; align-items: center; gap: 22px;">
@@ -50,15 +60,15 @@
           <span style="flex-shrink: 0; width: 38px; height: 38px; border-radius: 11px; background: #EDE4D6; color: #14312A; display: flex; align-items: center; justify-content: center; font-size: 17px;">◐</span>
           <span><b style="display: block; font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 16px;">Overview</b><span style="font-size: 13px; color: rgba(247,243,236,.66); line-height: 1.45;">One system for human and AI coaching.</span></span>
         </a>
-        <a href="Attune%20Platform.dc.html" style="display: flex; gap: 14px; padding: 14px; border-radius: 14px; color: #F7F3EC; background-image: none; padding-bottom: 14px; transition: background .2s;" style-hover="background: rgba(247,243,236,.07);">
+        <a href="Attune%20Integrations.dc.html" style="display: flex; gap: 14px; padding: 14px; border-radius: 14px; color: #F7F3EC; background-image: none; padding-bottom: 14px; transition: background .2s;" style-hover="background: rgba(247,243,236,.07);">
           <span style="flex-shrink: 0; width: 38px; height: 38px; border-radius: 11px; background: #EDE4D6; color: #14312A; display: flex; align-items: center; justify-content: center; font-size: 17px;">⇄</span>
           <span><b style="display: block; font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 16px;">Integrations</b><span style="font-size: 13px; color: rgba(247,243,236,.66); line-height: 1.45;">Slack, Teams, Zoom, Workday.</span></span>
         </a>
-        <a href="Attune%20Platform.dc.html" style="display: flex; gap: 14px; padding: 14px; border-radius: 14px; color: #F7F3EC; background-image: none; padding-bottom: 14px; transition: background .2s;" style-hover="background: rgba(247,243,236,.07);">
+        <a href="Attune%20AI.dc.html" style="display: flex; gap: 14px; padding: 14px; border-radius: 14px; color: #F7F3EC; background-image: none; padding-bottom: 14px; transition: background .2s;" style-hover="background: rgba(247,243,236,.07);">
           <span style="flex-shrink: 0; width: 38px; height: 38px; border-radius: 11px; background: #EDE4D6; color: #14312A; display: flex; align-items: center; justify-content: center; font-size: 17px;">✳</span>
           <span><b style="display: block; font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 16px;">Powered by AI</b><span style="font-size: 13px; color: rgba(247,243,236,.66); line-height: 1.45;">Coaching in the flow of work.</span></span>
         </a>
-        <a href="Attune%20Platform.dc.html" style="display: flex; gap: 14px; padding: 14px; border-radius: 14px; color: #F7F3EC; background-image: none; padding-bottom: 14px; transition: background .2s;" style-hover="background: rgba(247,243,236,.07);">
+        <a href="Attune%20Trust.dc.html" style="display: flex; gap: 14px; padding: 14px; border-radius: 14px; color: #F7F3EC; background-image: none; padding-bottom: 14px; transition: background .2s;" style-hover="background: rgba(247,243,236,.07);">
           <span style="flex-shrink: 0; width: 38px; height: 38px; border-radius: 11px; background: #EDE4D6; color: #14312A; display: flex; align-items: center; justify-content: center; font-size: 17px;">⛨</span>
           <span><b style="display: block; font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 16px;">Trust &amp; Security</b><span style="font-size: 13px; color: rgba(247,243,236,.66); line-height: 1.45;">SOC 2, ISO 27001, GDPR.</span></span>
         </a>
@@ -78,11 +88,11 @@
           <span style="flex-shrink: 0; width: 38px; height: 38px; border-radius: 11px; background: #EDE4D6; color: #14312A; display: flex; align-items: center; justify-content: center; font-size: 17px;">◐</span>
           <span><b style="display: block; font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 16px;">Attune Guide</b><span style="font-size: 13px; color: rgba(247,243,236,.66); line-height: 1.45;">1:1 human coaching.</span></span>
         </a>
-        <a href="Attune%20Guide.dc.html" style="display: flex; gap: 14px; padding: 14px; border-radius: 14px; color: #F7F3EC; background-image: none; padding-bottom: 14px; transition: background .2s;" style-hover="background: rgba(247,243,236,.07);">
+        <a href="Attune%20Flow.dc.html" style="display: flex; gap: 14px; padding: 14px; border-radius: 14px; color: #F7F3EC; background-image: none; padding-bottom: 14px; transition: background .2s;" style-hover="background: rgba(247,243,236,.07);">
           <span style="flex-shrink: 0; width: 38px; height: 38px; border-radius: 11px; background: #EDE4D6; color: #14312A; display: flex; align-items: center; justify-content: center; font-size: 17px;">✳</span>
           <span><b style="display: block; font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 16px;">Attune Flow</b><span style="font-size: 13px; color: rgba(247,243,236,.66); line-height: 1.45;">AI coaching in the flow of work.</span></span>
         </a>
-        <a href="Attune%20Guide.dc.html" style="display: flex; gap: 14px; padding: 14px; border-radius: 14px; color: #F7F3EC; background-image: none; padding-bottom: 14px; transition: background .2s;" style-hover="background: rgba(247,243,236,.07);">
+        <a href="Attune%20Signal.dc.html" style="display: flex; gap: 14px; padding: 14px; border-radius: 14px; color: #F7F3EC; background-image: none; padding-bottom: 14px; transition: background .2s;" style-hover="background: rgba(247,243,236,.07);">
           <span style="flex-shrink: 0; width: 38px; height: 38px; border-radius: 11px; background: #EDE4D6; color: #14312A; display: flex; align-items: center; justify-content: center; font-size: 17px;">◈</span>
           <span><b style="display: block; font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 16px;">Attune Signal</b><span style="font-size: 13px; color: rgba(247,243,236,.66); line-height: 1.45;">Performance intelligence.</span></span>
         </a>
@@ -98,23 +108,23 @@
   <sc-if value="{{ isSolutions }}" hint-placeholder-val="{{ false }}">
     <div onMouseEnter="{{ cancelClose }}" onMouseLeave="{{ scheduleClose }}" data-nav-desktop style="position: absolute; top: calc(100% + 12px); left: 0; right: 0; display: grid; grid-template-columns: 1.6fr .9fr; gap: 28px; padding: 26px; border-radius: 24px; background: rgba(20,49,42,.94); backdrop-filter: blur(22px) saturate(140%); -webkit-backdrop-filter: blur(22px) saturate(140%); border: 1px solid rgba(247,243,236,.16); box-shadow: 0 40px 90px -40px rgba(0,0,0,.85); animation: navPanelIn .15s cubic-bezier(.22,.61,.36,1) both;">
       <div style="display: grid; grid-template-columns: repeat(2,1fr); gap: 6px;">
-        <a href="Attune%20Solutions.dc.html" style="display: flex; gap: 14px; padding: 14px; border-radius: 14px; color: #F7F3EC; background-image: none; padding-bottom: 14px; transition: background .2s;" style-hover="background: rgba(247,243,236,.07);">
+        <a href="Attune%20Solutions.dc.html#leadership" style="display: flex; gap: 14px; padding: 14px; border-radius: 14px; color: #F7F3EC; background-image: none; padding-bottom: 14px; transition: background .2s;" style-hover="background: rgba(247,243,236,.07);">
           <span style="flex-shrink: 0; width: 38px; height: 38px; border-radius: 11px; background: #EDE4D6; color: #14312A; display: flex; align-items: center; justify-content: center; font-size: 17px;">△</span>
           <span><b style="display: block; font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 16px;">Leadership development</b><span style="font-size: 13px; color: rgba(247,243,236,.66); line-height: 1.45;">Sharper judgment at the top.</span></span>
         </a>
-        <a href="Attune%20Solutions.dc.html" style="display: flex; gap: 14px; padding: 14px; border-radius: 14px; color: #F7F3EC; background-image: none; padding-bottom: 14px; transition: background .2s;" style-hover="background: rgba(247,243,236,.07);">
+        <a href="Attune%20Managers.dc.html" style="display: flex; gap: 14px; padding: 14px; border-radius: 14px; color: #F7F3EC; background-image: none; padding-bottom: 14px; transition: background .2s;" style-hover="background: rgba(247,243,236,.07);">
           <span style="flex-shrink: 0; width: 38px; height: 38px; border-radius: 11px; background: #EDE4D6; color: #14312A; display: flex; align-items: center; justify-content: center; font-size: 17px;">◎</span>
           <span><b style="display: block; font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 16px;">Manager effectiveness</b><span style="font-size: 13px; color: rgba(247,243,236,.66); line-height: 1.45;">The layer that moves the work.</span></span>
         </a>
-        <a href="Attune%20Solutions.dc.html" style="display: flex; gap: 14px; padding: 14px; border-radius: 14px; color: #F7F3EC; background-image: none; padding-bottom: 14px; transition: background .2s;" style-hover="background: rgba(247,243,236,.07);">
+        <a href="Attune%20Workforce.dc.html" style="display: flex; gap: 14px; padding: 14px; border-radius: 14px; color: #F7F3EC; background-image: none; padding-bottom: 14px; transition: background .2s;" style-hover="background: rgba(247,243,236,.07);">
           <span style="flex-shrink: 0; width: 38px; height: 38px; border-radius: 11px; background: #EDE4D6; color: #14312A; display: flex; align-items: center; justify-content: center; font-size: 17px;">◇</span>
           <span><b style="display: block; font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 16px;">Whole-workforce coaching</b><span style="font-size: 13px; color: rgba(247,243,236,.66); line-height: 1.45;">Development past the top 1%.</span></span>
         </a>
-        <a href="Attune%20Solutions.dc.html" style="display: flex; gap: 14px; padding: 14px; border-radius: 14px; color: #F7F3EC; background-image: none; padding-bottom: 14px; transition: background .2s;" style-hover="background: rgba(247,243,236,.07);">
+        <a href="Attune%20Change.dc.html" style="display: flex; gap: 14px; padding: 14px; border-radius: 14px; color: #F7F3EC; background-image: none; padding-bottom: 14px; transition: background .2s;" style-hover="background: rgba(247,243,236,.07);">
           <span style="flex-shrink: 0; width: 38px; height: 38px; border-radius: 11px; background: #EDE4D6; color: #14312A; display: flex; align-items: center; justify-content: center; font-size: 17px;">≈</span>
           <span><b style="display: block; font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 16px;">Change &amp; resilience</b><span style="font-size: 13px; color: rgba(247,243,236,.66); line-height: 1.45;">Steady teams through change.</span></span>
         </a>
-        <a href="Attune%20Solutions.dc.html" style="display: flex; gap: 14px; padding: 14px; border-radius: 14px; color: #F7F3EC; background-image: none; padding-bottom: 14px; transition: background .2s;" style-hover="background: rgba(247,243,236,.07);">
+        <a href="Attune%20Government.dc.html" style="display: flex; gap: 14px; padding: 14px; border-radius: 14px; color: #F7F3EC; background-image: none; padding-bottom: 14px; transition: background .2s;" style-hover="background: rgba(247,243,236,.07);">
           <span style="flex-shrink: 0; width: 38px; height: 38px; border-radius: 11px; background: #EDE4D6; color: #14312A; display: flex; align-items: center; justify-content: center; font-size: 17px;">▣</span>
           <span><b style="display: block; font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 16px;">For government</b><span style="font-size: 13px; color: rgba(247,243,236,.66); line-height: 1.45;">Public-sector ready.</span></span>
         </a>
@@ -144,15 +154,6 @@
         <span style="display: block; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: rgba(247,243,236,.7); margin-bottom: 6px;">Featured story</span>
         <b style="font-family: 'Fraunces', Georgia, serif; font-weight: 600; font-size: 17px;">Orbital +15%</b>
       </a>
-    </div>
-  </sc-if>
-
-  <sc-if value="{{ isCompany }}" hint-placeholder-val="{{ false }}">
-    <div onMouseEnter="{{ cancelClose }}" onMouseLeave="{{ scheduleClose }}" data-nav-desktop style="position: absolute; top: calc(100% + 12px); right: 0; width: 300px; padding: 14px; border-radius: 20px; background: rgba(20,49,42,.94); backdrop-filter: blur(22px) saturate(140%); -webkit-backdrop-filter: blur(22px) saturate(140%); border: 1px solid rgba(247,243,236,.16); box-shadow: 0 40px 90px -40px rgba(0,0,0,.85); animation: navPanelIn .15s cubic-bezier(.22,.61,.36,1) both; display: grid; gap: 2px;">
-      <a href="#" style="padding: 11px 14px; border-radius: 12px; color: #F7F3EC; font-size: 15px; background-image: none; padding-bottom: 11px; transition: background .2s;" style-hover="background: rgba(247,243,236,.07);">About</a>
-      <a href="#" style="padding: 11px 14px; border-radius: 12px; color: #F7F3EC; font-size: 15px; background-image: none; padding-bottom: 11px; transition: background .2s;" style-hover="background: rgba(247,243,236,.07);">Coaches</a>
-      <a href="#" style="padding: 11px 14px; border-radius: 12px; color: #F7F3EC; font-size: 15px; background-image: none; padding-bottom: 11px; transition: background .2s;" style-hover="background: rgba(247,243,236,.07);">Careers</a>
-      <a href="#" style="padding: 11px 14px; border-radius: 12px; color: #F7F3EC; font-size: 15px; background-image: none; padding-bottom: 11px; transition: background .2s;" style-hover="background: rgba(247,243,236,.07);">Newsroom</a>
     </div>
   </sc-if>
 

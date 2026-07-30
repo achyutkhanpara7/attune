@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #F7F3EC; color: #33322E; font-family: "Inter", system-ui, -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #E8674C; text-decoration: none; background-image: linear-gradient(currentColor, currentColor); background-repeat: no-repeat; background-position: 0 100%; background-size: 0% 1px; transition: background-size .32s cubic-bezier(.22,.61,.36,1), color .2s; padding-bottom: 2px; }
+  a:hover { color: #F08874; background-size: 100% 1px; }
+  @keyframes revealIn { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+  @keyframes revealLeft { from { opacity: 0; transform: translateX(-26px); } to { opacity: 1; transform: none; } }
+  @keyframes revealScale { from { opacity: 0; transform: scale(.94); } to { opacity: 1; transform: none; } }
+  @keyframes floatA { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-11px); } }
+  @keyframes floatB { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  @keyframes marqueeX { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes marqueeXrev { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+  @keyframes kenburns { 0% { transform: scale(1); } 100% { transform: scale(1.12) translate3d(-1.5%,-1%,0); } }
+  @keyframes pulseRing { 0% { transform: scale(.9); opacity: .5; } 70% { transform: scale(1.55); opacity: 0; } 100% { opacity: 0; } }
+  @keyframes orbit { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  @keyframes orbitRev { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+  @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: .2; } }
+  @keyframes msgIn { 0%,8% { opacity: 0; transform: translateY(10px); } 18%,92% { opacity: 1; transform: none; } 100% { opacity: 1; } }
+  [data-carousel]:hover [data-track] { animation-play-state: paused; }
+  @media (max-width: 980px) {
+    [data-resp="hero"] { grid-template-columns: 1fr !important; padding-top: 112px !important; }
+    [data-resp="g4"], [data-resp="g3"], [data-resp="g2"] { grid-template-columns: 1fr !important; }
+    [data-resp="hide-s"] { display: none !important; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+</helmet>
+
+<dc-import name="AttuneNav" hint-size="100%,74px"></dc-import>
+
+<header style="position: relative; overflow: hidden; padding: 168px 40px 90px; background: radial-gradient(62% 72% at 50% 0%, #1B4238 0%, #14312A 48%, #0C1E19 100%); color: #F7F3EC; text-align: center;">
+  <div style="position: absolute; inset: 0; opacity: .4; background: radial-gradient(34% 40% at 22% 30%, rgba(62,124,106,.55), transparent 70%), radial-gradient(30% 36% at 80% 24%, rgba(232,103,76,.3), transparent 70%);"></div>
+  <div style="position: relative; max-width: 900px; margin: 0 auto;">
+    <span style="display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #3E7C6A; margin-bottom: 22px; animation: revealIn .85s cubic-bezier(.22,.61,.36,1) .05s both;">Trust & security</span>
+    <h1 style="font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-weight: 500; font-size: clamp(40px,5.2vw,74px); line-height: 1.01; letter-spacing: -.025em; margin: 0 0 24px; animation: revealIn .85s cubic-bezier(.22,.61,.36,1) .14s both;">Coaching data is <span style="color: #E8674C; font-style: italic;">the most sensitive</span> data you hold.</h1>
+    <p style="font-size: clamp(17px,1.5vw,20px); line-height: 1.55; color: rgba(247,243,236,.82); max-width: 620px; margin: 0 auto 34px; animation: revealIn .85s cubic-bezier(.22,.61,.36,1) .26s both;">People only speak freely when they know who can see it. Our security posture exists to make that answer simple: their coach, and no one else.</p>
+    <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; animation: revealIn .85s cubic-bezier(.22,.61,.36,1) .38s both;">
+      <button style="background: #E8674C; color: #fff; border: none; border-radius: 999px; padding: 15px 30px; font-family: inherit; font-weight: 600; font-size: 16px; cursor: pointer; transition: transform .2s cubic-bezier(.22,.61,.36,1), filter .2s;" style-hover="transform: translateY(-2px); filter: brightness(1.06);">Request a demo</button>
+      <a href="Attune%20Platform.dc.html" style="display: inline-flex; align-items: center; background: transparent; color: #F7F3EC; border: 1px solid rgba(247,243,236,.35); border-radius: 999px; padding: 15px 28px; font-family: inherit; font-weight: 600; font-size: 16px; cursor: pointer; transition: border-color .2s, background .2s; background-image: none; padding-bottom: 15px;" style-hover="border-color: #F7F3EC; background: rgba(247,243,236,.06); color: #F7F3EC;">Back to platform</a>
+    </div>
+  </div>
+  <div style="position: relative; margin: 76px auto 0; max-width: 1080px; text-align: left; animation: revealIn .9s cubic-bezier(.22,.61,.36,1) .5s both;">
+    <div data-resp="g3" style="display: grid; grid-template-columns: repeat(3,1fr); gap: 20px;">
+      <div style="background: rgba(247,243,236,.06); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); border: 1px solid rgba(247,243,236,.16); border-radius: 20px; box-shadow: 0 30px 70px -40px rgba(0,0,0,.7), inset 0 1px 0 rgba(247,243,236,.14); padding: 28px 26px; ">
+        <div style="font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: #3E7C6A; font-weight: 600; margin-bottom: 16px;">The member</div>
+        <div style="display: grid; gap: 10px;">
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: rgba(247,243,236,.82);"><span style="width: 18px; color: #3E7C6A;">✓</span>Full session history</div>
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: rgba(247,243,236,.82);"><span style="width: 18px; color: #3E7C6A;">✓</span>Their own assessments</div>
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: rgba(247,243,236,.82);"><span style="width: 18px; color: #3E7C6A;">✓</span>Delete on request</div>
+        </div>
+      </div>
+      <div style="background: rgba(247,243,236,.06); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); border: 1px solid rgba(247,243,236,.16); border-radius: 20px; box-shadow: 0 30px 70px -40px rgba(0,0,0,.7), inset 0 1px 0 rgba(247,243,236,.14); padding: 28px 26px; ">
+        <div style="font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: #3E7C6A; font-weight: 600; margin-bottom: 16px;">Their coach</div>
+        <div style="display: grid; gap: 10px;">
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: rgba(247,243,236,.82);"><span style="width: 18px; color: #3E7C6A;">✓</span>Session notes</div>
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: rgba(247,243,236,.82);"><span style="width: 18px; color: #3E7C6A;">✓</span>Agreed focus areas</div>
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: rgba(247,243,236,.82);"><span style="width: 18px; color: #3E7C6A;">✓</span>Access ends with engagement</div>
+        </div>
+      </div>
+      <div style="background: rgba(247,243,236,.06); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); border: 1px solid rgba(247,243,236,.16); border-radius: 20px; box-shadow: 0 30px 70px -40px rgba(0,0,0,.7), inset 0 1px 0 rgba(247,243,236,.14); padding: 28px 26px; border-color: rgba(232,103,76,.45);">
+        <div style="font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: #E8674C; font-weight: 600; margin-bottom: 16px;">Program admin</div>
+        <div style="display: grid; gap: 10px;">
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: rgba(247,243,236,.82);"><span style="width: 18px; color: #E8674C;">✕</span>Session notes</div>
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: rgba(247,243,236,.82);"><span style="width: 18px; color: #E8674C;">✕</span>Transcripts or verbatims</div>
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: rgba(247,243,236,.82);"><span style="width: 18px; color: #3E7C6A;">✓</span>Cohort movement only</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section style="background: #F7F3EC; padding: 92px 40px;">
+  <p data-reveal="1" style="opacity: 0; font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-weight: 500; font-size: clamp(27px,3.2vw,42px); line-height: 1.18; letter-spacing: -.02em; color: #14312A; max-width: 920px; margin: 0; text-wrap: pretty;">Admins see whether capability is moving. They never see <span style="color: #3E7C6A;">what anyone said.</span></p>
+</section>
+
+<section style="background: #EDE4D6; padding: 110px 40px;">
+  <div style="font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #3E7C6A; margin-bottom: 14px;">Assurance</div>  <h2 data-reveal="1" style="opacity: 0; font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-weight: 500; font-size: clamp(32px,3.8vw,50px); line-height: 1.04; letter-spacing: -.02em; color: #14312A; margin: 0 0 56px; max-width: 700px; text-wrap: pretty;">The numbers your security review asks for first.</h2>  <div data-resp="g3" style="display: grid; grid-template-columns: repeat(3,1fr); gap: 30px; justify-items: center;">
+      <div style="display: grid; justify-items: center; gap: 14px;">
+        <div style="position: relative; width: 148px; height: 148px;">
+          <svg viewBox="0 0 120 120" style="width: 100%; height: 100%; transform: rotate(-90deg);">
+            <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(20,49,42,.12)" stroke-width="11"></circle>
+            <circle data-draw="1" cx="60" cy="60" r="52" fill="none" stroke="#3E7C6A" stroke-width="11" stroke-linecap="round" stroke-dasharray="326.7" stroke-dashoffset="326.7" style="stroke-dashoffset: 0.3; transition: stroke-dashoffset 1.6s cubic-bezier(.22,.61,.36,1);"></circle>
+          </svg>
+          <div style="position: absolute; inset: 0; display: grid; place-items: center; font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-size: 25px; font-weight: 600; color: #14312A;"><span data-count="99.9" data-decimals="1" data-suffix="%">0</span></div>
+        </div>
+        <div style="text-align: center;"><div style="font-size: 15px; font-weight: 600; color: #14312A;">Uptime</div><div style="font-size: 13px; color: #9A9488; margin-top: 5px; max-width: 190px; line-height: 1.45;">Trailing twelve months, measured externally</div></div>
+      </div>
+      <div style="display: grid; justify-items: center; gap: 14px;">
+        <div style="position: relative; width: 148px; height: 148px;">
+          <svg viewBox="0 0 120 120" style="width: 100%; height: 100%; transform: rotate(-90deg);">
+            <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(20,49,42,.12)" stroke-width="11"></circle>
+            <circle data-draw="1" cx="60" cy="60" r="52" fill="none" stroke="#E8674C" stroke-width="11" stroke-linecap="round" stroke-dasharray="326.7" stroke-dashoffset="326.7" style="stroke-dashoffset: 0.0; transition: stroke-dashoffset 1.6s cubic-bezier(.22,.61,.36,1);"></circle>
+          </svg>
+          <div style="position: absolute; inset: 0; display: grid; place-items: center; font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-size: 25px; font-weight: 600; color: #14312A;"><span data-count="100" data-suffix="%">0</span></div>
+        </div>
+        <div style="text-align: center;"><div style="font-size: 15px; font-weight: 600; color: #14312A;">Encrypted</div><div style="font-size: 13px; color: #9A9488; margin-top: 5px; max-width: 190px; line-height: 1.45;">TLS 1.3 in transit, AES-256 at rest</div></div>
+      </div>
+      <div style="display: grid; justify-items: center; gap: 14px;">
+        <div style="position: relative; width: 148px; height: 148px;">
+          <svg viewBox="0 0 120 120" style="width: 100%; height: 100%; transform: rotate(-90deg);">
+            <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(20,49,42,.12)" stroke-width="11"></circle>
+            <circle data-draw="1" cx="60" cy="60" r="52" fill="none" stroke="rgba(62,124,106,.6)" stroke-width="11" stroke-linecap="round" stroke-dasharray="326.7" stroke-dashoffset="326.7" style="stroke-dashoffset: 0.0; transition: stroke-dashoffset 1.6s cubic-bezier(.22,.61,.36,1);"></circle>
+          </svg>
+          <div style="position: absolute; inset: 0; display: grid; place-items: center; font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-size: 25px; font-weight: 600; color: #14312A;"><span data-count="100" data-suffix="%">0</span></div>
+        </div>
+        <div style="text-align: center;"><div style="font-size: 15px; font-weight: 600; color: #14312A;">US or EU residency</div><div style="font-size: 13px; color: #9A9488; margin-top: 5px; max-width: 190px; line-height: 1.45;">Data never leaves the chosen region</div></div>
+      </div>
+  </div>
+</section>
+
+<section style="background: #14312A; color: #F7F3EC; padding: 110px 40px;">
+  <div style="font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #3E7C6A; margin-bottom: 14px;">Certifications</div>  <h2 data-reveal="1" style="opacity: 0; font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-weight: 500; font-size: clamp(32px,3.8vw,50px); line-height: 1.04; letter-spacing: -.02em; color: #F7F3EC; margin: 0 0 46px; max-width: 700px; text-wrap: pretty;">Current, third-party verified, and available under NDA.</h2>  <div data-carousel="1" style="overflow: hidden; -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent); mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);">
+    <div data-track="1" style="display: flex; gap: 20px; width: max-content; animation: marqueeXrev 42s linear infinite;">
+      <div style="flex: 0 0 auto; width: 330px; background: rgba(247,243,236,.06); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); border: 1px solid rgba(247,243,236,.16); border-radius: 20px; box-shadow: 0 30px 70px -40px rgba(0,0,0,.7), inset 0 1px 0 rgba(247,243,236,.14); padding: 28px 26px;">
+        <div style="font-size: 20px; margin-bottom: 14px; color: #E8674C;">⛨</div>
+        <div style="font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-size: 18px; font-weight: 600; color: #F7F3EC; margin-bottom: 8px;">SOC 2 Type II</div>
+        <div style="font-size: 14px; line-height: 1.55; color: rgba(247,243,236,.72);">Full report available to prospects under NDA, refreshed annually.</div>
+      </div>
+      <div style="flex: 0 0 auto; width: 330px; background: rgba(247,243,236,.06); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); border: 1px solid rgba(247,243,236,.16); border-radius: 20px; box-shadow: 0 30px 70px -40px rgba(0,0,0,.7), inset 0 1px 0 rgba(247,243,236,.14); padding: 28px 26px;">
+        <div style="font-size: 20px; margin-bottom: 14px; color: #E8674C;">◈</div>
+        <div style="font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-size: 18px; font-weight: 600; color: #F7F3EC; margin-bottom: 8px;">ISO 27001</div>
+        <div style="font-size: 14px; line-height: 1.55; color: rgba(247,243,236,.72);">Certified information security management across the platform.</div>
+      </div>
+      <div style="flex: 0 0 auto; width: 330px; background: rgba(247,243,236,.06); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); border: 1px solid rgba(247,243,236,.16); border-radius: 20px; box-shadow: 0 30px 70px -40px rgba(0,0,0,.7), inset 0 1px 0 rgba(247,243,236,.14); padding: 28px 26px;">
+        <div style="font-size: 20px; margin-bottom: 14px; color: #E8674C;">◎</div>
+        <div style="font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-size: 18px; font-weight: 600; color: #F7F3EC; margin-bottom: 8px;">ISO 27701</div>
+        <div style="font-size: 14px; line-height: 1.55; color: rgba(247,243,236,.72);">Privacy information management extension to our ISMS.</div>
+      </div>
+      <div style="flex: 0 0 auto; width: 330px; background: rgba(247,243,236,.06); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); border: 1px solid rgba(247,243,236,.16); border-radius: 20px; box-shadow: 0 30px 70px -40px rgba(0,0,0,.7), inset 0 1px 0 rgba(247,243,236,.14); padding: 28px 26px;">
+        <div style="font-size: 20px; margin-bottom: 14px; color: #E8674C;">▣</div>
+        <div style="font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-size: 18px; font-weight: 600; color: #F7F3EC; margin-bottom: 8px;">GDPR</div>
+        <div style="font-size: 14px; line-height: 1.55; color: rgba(247,243,236,.72);">EU representative, DPA, and documented subprocessor list.</div>
+      </div>
+      <div style="flex: 0 0 auto; width: 330px; background: rgba(247,243,236,.06); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); border: 1px solid rgba(247,243,236,.16); border-radius: 20px; box-shadow: 0 30px 70px -40px rgba(0,0,0,.7), inset 0 1px 0 rgba(247,243,236,.14); padding: 28px 26px;">
+        <div style="font-size: 20px; margin-bottom: 14px; color: #E8674C;">△</div>
+        <div style="font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-size: 18px; font-weight: 600; color: #F7F3EC; margin-bottom: 8px;">WCAG 2.1 AA</div>
+        <div style="font-size: 14px; line-height: 1.55; color: rgba(247,243,236,.72);">Accessibility conformance across the member experience.</div>
+      </div>
+      <div style="flex: 0 0 auto; width: 330px; background: rgba(247,243,236,.06); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); border: 1px solid rgba(247,243,236,.16); border-radius: 20px; box-shadow: 0 30px 70px -40px rgba(0,0,0,.7), inset 0 1px 0 rgba(247,243,236,.14); padding: 28px 26px;">
+        <div style="font-size: 20px; margin-bottom: 14px; color: #E8674C;">≈</div>
+        <div style="font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-size: 18px; font-weight: 600; color: #F7F3EC; margin-bottom: 8px;">Annual pen test</div>
+        <div style="font-size: 14px; line-height: 1.55; color: rgba(247,243,236,.72);">Independent testing with summary letter shared on request.</div>
+      </div>
+      <div style="flex: 0 0 auto; width: 330px; background: rgba(247,243,236,.06); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); border: 1px solid rgba(247,243,236,.16); border-radius: 20px; box-shadow: 0 30px 70px -40px rgba(0,0,0,.7), inset 0 1px 0 rgba(247,243,236,.14); padding: 28px 26px;">
+        <div style="font-size: 20px; margin-bottom: 14px; color: #E8674C;">⛨</div>
+        <div style="font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-size: 18px; font-weight: 600; color: #F7F3EC; margin-bottom: 8px;">SOC 2 Type II</div>
+        <div style="font-size: 14px; line-height: 1.55; color: rgba(247,243,236,.72);">Full report available to prospects under NDA, refreshed annually.</div>
+      </div>
+      <div style="flex: 0 0 auto; width: 330px; background: rgba(247,243,236,.06); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); border: 1px solid rgba(247,243,236,.16); border-radius: 20px; box-shadow: 0 30px 70px -40px rgba(0,0,0,.7), inset 0 1px 0 rgba(247,243,236,.14); padding: 28px 26px;">
+        <div style="font-size: 20px; margin-bottom: 14px; color: #E8674C;">◈</div>
+        <div style="font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-size: 18px; font-weight: 600; color: #F7F3EC; margin-bottom: 8px;">ISO 27001</div>
+        <div style="font-size: 14px; line-height: 1.55; color: rgba(247,243,236,.72);">Certified information security management across the platform.</div>
+      </div>
+      <div style="flex: 0 0 auto; width: 330px; background: rgba(247,243,236,.06); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); border: 1px solid rgba(247,243,236,.16); border-radius: 20px; box-shadow: 0 30px 70px -40px rgba(0,0,0,.7), inset 0 1px 0 rgba(247,243,236,.14); padding: 28px 26px;">
+        <div style="font-size: 20px; margin-bottom: 14px; color: #E8674C;">◎</div>
+        <div style="font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-size: 18px; font-weight: 600; color: #F7F3EC; margin-bottom: 8px;">ISO 27701</div>
+        <div style="font-size: 14px; line-height: 1.55; color: rgba(247,243,236,.72);">Privacy information management extension to our ISMS.</div>
+      </div>
+      <div style="flex: 0 0 auto; width: 330px; background: rgba(247,243,236,.06); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); border: 1px solid rgba(247,243,236,.16); border-radius: 20px; box-shadow: 0 30px 70px -40px rgba(0,0,0,.7), inset 0 1px 0 rgba(247,243,236,.14); padding: 28px 26px;">
+        <div style="font-size: 20px; margin-bottom: 14px; color: #E8674C;">▣</div>
+        <div style="font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-size: 18px; font-weight: 600; color: #F7F3EC; margin-bottom: 8px;">GDPR</div>
+        <div style="font-size: 14px; line-height: 1.55; color: rgba(247,243,236,.72);">EU representative, DPA, and documented subprocessor list.</div>
+      </div>
+      <div style="flex: 0 0 auto; width: 330px; background: rgba(247,243,236,.06); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); border: 1px solid rgba(247,243,236,.16); border-radius: 20px; box-shadow: 0 30px 70px -40px rgba(0,0,0,.7), inset 0 1px 0 rgba(247,243,236,.14); padding: 28px 26px;">
+        <div style="font-size: 20px; margin-bottom: 14px; color: #E8674C;">△</div>
+        <div style="font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-size: 18px; font-weight: 600; color: #F7F3EC; margin-bottom: 8px;">WCAG 2.1 AA</div>
+        <div style="font-size: 14px; line-height: 1.55; color: rgba(247,243,236,.72);">Accessibility conformance across the member experience.</div>
+      </div>
+      <div style="flex: 0 0 auto; width: 330px; background: rgba(247,243,236,.06); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); border: 1px solid rgba(247,243,236,.16); border-radius: 20px; box-shadow: 0 30px 70px -40px rgba(0,0,0,.7), inset 0 1px 0 rgba(247,243,236,.14); padding: 28px 26px;">
+        <div style="font-size: 20px; margin-bottom: 14px; color: #E8674C;">≈</div>
+        <div style="font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-size: 18px; font-weight: 600; color: #F7F3EC; margin-bottom: 8px;">Annual pen test</div>
+        <div style="font-size: 14px; line-height: 1.55; color: rgba(247,243,236,.72);">Independent testing with summary letter shared on request.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background: #F7F3EC; padding: 110px 40px;">
+  <div data-resp="g2" style="display: grid; grid-template-columns: 1.05fr .95fr; gap: 60px; align-items: center;">
+    <div>
+  <h2 data-reveal="1" style="opacity: 0; font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-weight: 500; font-size: clamp(32px,3.8vw,50px); line-height: 1.04; letter-spacing: -.02em; color: #14312A; margin: 0 0 20px; max-width: 700px; text-wrap: pretty;">Privacy is a product decision, not a policy page.</h2>
+      <p style="font-size: 18px; line-height: 1.62; color: #57544d; margin: 0 0 30px; max-width: 500px;">The reporting model was designed backwards from one constraint: a member must never have to weigh honesty against career risk.</p>
+      <ul style="list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; max-width: 500px;">
+        <li style="display: grid; grid-template-columns: 22px 1fr; gap: 12px; align-items: start; font-size: 16px; line-height: 1.6; color: #57544d;"><span style="color: #3E7C6A;">✓</span><span>Session notes and transcripts are never admin-visible</span></li>
+        <li style="display: grid; grid-template-columns: 22px 1fr; gap: 12px; align-items: start; font-size: 16px; line-height: 1.6; color: #57544d;"><span style="color: #3E7C6A;">✓</span><span>Members can delete their coaching history on request</span></li>
+        <li style="display: grid; grid-template-columns: 22px 1fr; gap: 12px; align-items: start; font-size: 16px; line-height: 1.6; color: #57544d;"><span style="color: #3E7C6A;">✓</span><span>Coach access ends when the engagement ends</span></li>
+        <li style="display: grid; grid-template-columns: 22px 1fr; gap: 12px; align-items: start; font-size: 16px; line-height: 1.6; color: #57544d;"><span style="color: #3E7C6A;">✓</span><span>Audit log for every administrative action</span></li>
+      </ul>
+    </div>
+    <div data-reveal="1" data-io-delay=".1s" style="opacity: 0; background: linear-gradient(155deg, rgba(255,255,255,.9), rgba(255,255,255,.5)); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,.82); border-radius: 20px; box-shadow: 0 22px 50px -34px rgba(20,49,42,.5), inset 0 1px 0 rgba(255,255,255,.92); padding: 34px 32px;">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 10px;">
+        <div style="font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-size: 22px; font-weight: 600; color: #14312A;">Compliance at a glance</div>
+        <div style="font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: #9A9488;">status</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 18px; padding: 15px 0; border-bottom: 1px solid rgba(20,49,42,.1);">
+        <div style="font-size: 15px; color: #33322E; line-height: 1.5;">SOC 2 Type II</div>
+        <div style="font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-size: 17px; font-weight: 600; color: #14312A; white-space: nowrap;">Current</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 18px; padding: 15px 0; border-bottom: 1px solid rgba(20,49,42,.1);">
+        <div style="font-size: 15px; color: #33322E; line-height: 1.5;">ISO 27001 / 27701</div>
+        <div style="font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-size: 17px; font-weight: 600; color: #14312A; white-space: nowrap;">Certified</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 18px; padding: 15px 0; border-bottom: 1px solid rgba(20,49,42,.1);">
+        <div style="font-size: 15px; color: #33322E; line-height: 1.5;">GDPR + EU residency</div>
+        <div style="font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-size: 17px; font-weight: 600; color: #14312A; white-space: nowrap;">Available</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 18px; padding: 15px 0; ">
+        <div style="font-size: 15px; color: #33322E; line-height: 1.5;">Minimum cohort size</div>
+        <div style="font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-size: 17px; font-weight: 600; color: #14312A; white-space: nowrap;">8 people</div>
+      </div>
+      <div style="margin-top: 22px; padding: 16px 18px; border-radius: 14px; background: rgba(62,124,106,.1); border: 1px solid rgba(62,124,106,.2); font-size: 14px; line-height: 1.55; color: #14312A;">Public-sector and regulated buyers: ask about our FedRAMP roadmap and government tenancy options.</div>
+    </div>
+  </div>
+</section>
+
+<section style="background: #EDE4D6; padding: 110px 40px;">
+  <h2 data-reveal="1" style="opacity: 0; font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-weight: 500; font-size: clamp(32px,3.8vw,50px); line-height: 1.04; letter-spacing: -.02em; color: #14312A; margin: 0 0 46px; max-width: 700px; text-wrap: pretty;">What security teams ask us.</h2>  <div style="max-width: 900px;">
+    <div style="border-top: 1px solid rgba(154,148,136,.32);">
+      <button onClick="{{ toggle0 }}" style="width: 100%; text-align: left; display: flex; align-items: center; justify-content: space-between; gap: 24px; background: none; border: none; padding: 25px 0; cursor: pointer; font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-size: 20px; font-weight: 600; color: #14312A;">Who can see an individual's coaching content?<span style="color: #E8674C; font-size: 24px; font-family: 'Inter', sans-serif;">{{ sign0 }}</span></button>
+      <sc-if value="{{ open0 }}" hint-placeholder-val="{{ false }}">
+        <p style="font-size: 17px; line-height: 1.65; color: #57544d; margin: 0 0 26px; max-width: 720px;">The member and their coach. No admin, manager, or Attune employee outside a narrow, audited support path can read session notes or transcripts.</p>
+      </sc-if>
+    </div>
+    <div style="border-top: 1px solid rgba(154,148,136,.32);">
+      <button onClick="{{ toggle1 }}" style="width: 100%; text-align: left; display: flex; align-items: center; justify-content: space-between; gap: 24px; background: none; border: none; padding: 25px 0; cursor: pointer; font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-size: 20px; font-weight: 600; color: #14312A;">Where is data stored?<span style="color: #E8674C; font-size: 24px; font-family: 'Inter', sans-serif;">{{ sign1 }}</span></button>
+      <sc-if value="{{ open1 }}" hint-placeholder-val="{{ false }}">
+        <p style="font-size: 17px; line-height: 1.65; color: #57544d; margin: 0 0 26px; max-width: 720px;">In the region you select at contract — EU or US. Data does not leave that region, and subprocessors are documented per region.</p>
+      </sc-if>
+    </div>
+    <div style="border-top: 1px solid rgba(154,148,136,.32);">
+      <button onClick="{{ toggle2 }}" style="width: 100%; text-align: left; display: flex; align-items: center; justify-content: space-between; gap: 24px; background: none; border: none; padding: 25px 0; cursor: pointer; font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-size: 20px; font-weight: 600; color: #14312A;">How do you handle offboarding?<span style="color: #E8674C; font-size: 24px; font-family: 'Inter', sans-serif;">{{ sign2 }}</span></button>
+      <sc-if value="{{ open2 }}" hint-placeholder-val="{{ false }}">
+        <p style="font-size: 17px; line-height: 1.65; color: #57544d; margin: 0 0 26px; max-width: 720px;">SCIM deprovisioning revokes access immediately. Coaching history is retained per your contracted retention period, then destroyed.</p>
+      </sc-if>
+    </div>
+    <div style="border-top: 1px solid rgba(154,148,136,.32); border-bottom: 1px solid rgba(154,148,136,.32);">
+      <button onClick="{{ toggle3 }}" style="width: 100%; text-align: left; display: flex; align-items: center; justify-content: space-between; gap: 24px; background: none; border: none; padding: 25px 0; cursor: pointer; font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-size: 20px; font-weight: 600; color: #14312A;">Can we run our own penetration test?<span style="color: #E8674C; font-size: 24px; font-family: 'Inter', sans-serif;">{{ sign3 }}</span></button>
+      <sc-if value="{{ open3 }}" hint-placeholder-val="{{ false }}">
+        <p style="font-size: 17px; line-height: 1.65; color: #57544d; margin: 0 0 26px; max-width: 720px;">Yes, against a staging tenant under a mutually agreed rules-of-engagement document.</p>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<section style="position: relative; background: #14312A; color: #F7F3EC; padding: 130px 40px; overflow: hidden;">
+  <div style="position: absolute; inset: 0; background: #14312A url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&h=900&q=80') center/cover no-repeat; opacity: .24;">
+
+  </div>
+  <div style="position: absolute; inset: 0; background: linear-gradient(100deg, rgba(20,49,42,.95), rgba(20,49,42,.58));"></div>
+  <div data-reveal="1" style="opacity: 0; position: relative; max-width: 820px; background: rgba(247,243,236,.06); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); border: 1px solid rgba(247,243,236,.16); border-radius: 20px; box-shadow: 0 30px 70px -40px rgba(0,0,0,.7), inset 0 1px 0 rgba(247,243,236,.14); border-radius: 28px; padding: 52px 48px;">
+    <h2 style="font-family: 'Fraunces', Georgia, 'Times New Roman', serif; font-weight: 500; font-size: clamp(36px,4.4vw,58px); line-height: 1.04; letter-spacing: -.02em; margin: 0 0 32px;">Send us your security questionnaire.</h2>
+    <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+      <button style="background: #E8674C; color: #fff; border: none; border-radius: 999px; padding: 15px 30px; font-family: inherit; font-weight: 600; font-size: 16px; cursor: pointer; transition: transform .2s cubic-bezier(.22,.61,.36,1), filter .2s;" style-hover="transform: translateY(-2px); filter: brightness(1.06);">Request a demo</button>
+      <button style="background: transparent; color: #F7F3EC; border: 1px solid rgba(247,243,236,.35); border-radius: 999px; padding: 15px 28px; font-family: inherit; font-weight: 600; font-size: 16px; cursor: pointer; transition: border-color .2s, background .2s;" style-hover="border-color: #F7F3EC; background: rgba(247,243,236,.06);">Talk to sales</button>
+    </div>
+  </div>
+</section>
+
+<dc-import name="AttuneFooter" hint-size="100%,420px"></dc-import>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { faq: 0 };
+
+  componentDidMount() {
+    document.querySelectorAll("video[data-bgv]").forEach((v) => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { v.style.display = "none"; return; }
+      v.muted = true;
+      v.addEventListener("error", () => { v.style.display = "none"; }, { once: true });
+      const p = v.play();
+      if (p && p.catch) p.catch(() => { v.style.display = "none"; });
+    });
+
+    this.io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        this.io.unobserve(el);
+        if (el.hasAttribute("data-count")) return this.countUp(el);
+        if (el.hasAttribute("data-bar")) { el.style.transform = "none"; return; }
+        if (el.hasAttribute("data-draw")) { el.style.strokeDashoffset = "0"; return; }
+        el.style.animation = (el.getAttribute("data-anim") || "revealIn") + " .85s cubic-bezier(.22,.61,.36,1) " + (el.getAttribute("data-io-delay") || "0s") + " both";
+      });
+    }, { threshold: 0.18 });
+
+    setTimeout(() => {
+      document.querySelectorAll("[data-count],[data-reveal],[data-bar],[data-draw]").forEach((el) => this.io.observe(el));
+    }, 60);
+
+    this.safety = setTimeout(() => {
+      document.querySelectorAll("[data-reveal]").forEach((el) => { if (getComputedStyle(el).opacity === "0") el.style.animation = "revealIn .8s cubic-bezier(.22,.61,.36,1) both"; });
+      document.querySelectorAll("[data-bar]").forEach((el) => { el.style.transform = "none"; });
+      document.querySelectorAll("[data-draw]").forEach((el) => { el.style.strokeDashoffset = "0"; });
+    }, 3200);
+  }
+
+  componentWillUnmount() { if (this.io) this.io.disconnect(); clearTimeout(this.safety); }
+
+  countUp(el) {
+    const target = parseFloat(el.getAttribute("data-count"));
+    const dec = parseInt(el.getAttribute("data-decimals") || "0", 10);
+    const suffix = el.getAttribute("data-suffix") || "";
+    const dur = 1500, t0 = performance.now();
+    const tick = (t) => {
+      const p = Math.min(1, (t - t0) / dur);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = (target * eased).toFixed(dec) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+
+  renderVals() {
+    const f = this.state.faq, vals = {};
+    for (let i = 0; i < 5; i++) {
+      vals["open" + i] = f === i;
+      vals["sign" + i] = f === i ? "–" : "+";
+      vals["toggle" + i] = ((n) => () => this.setState((st) => ({ faq: st.faq === n ? -1 : n })))(i);
+    }
+    return vals;
+  }
+}
+</script>
+</body>
+</html>

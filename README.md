@@ -12,11 +12,37 @@ Nothing here is a real product; all content, naming, and metrics are original an
 | `index.html` | Entry point — redirects to the home page |
 | `Attune Hero.dc.html` | Home page |
 | `Attune Platform.dc.html` | Platform overview |
-| `Attune Guide.dc.html` | Attune Guide (1:1 human coaching) product page |
-| `Attune Solutions.dc.html` | Solutions |
 | `Attune Customers.dc.html` | Customers / case studies |
+
+**Platform** — the four product pages the Platform menu points at:
+
+| File | What it is |
+|---|---|
+| `Attune Guide.dc.html` | Attune Guide — 1:1 human coaching |
+| `Attune Flow.dc.html` | Attune Flow — coaching for everyone, not the top 1% |
+| `Attune Signal.dc.html` | Attune Signal — development made legible to the business |
+| `Attune AI.dc.html` | Attune AI — coaching between the sessions |
+
+**Solutions** — `Attune Solutions.dc.html` is the overview; each row links to its own page:
+
+| File | What it is |
+|---|---|
+| `Attune Managers.dc.html` | Manager effectiveness |
+| `Attune Workforce.dc.html` | Whole-workforce coaching |
+| `Attune Change.dc.html` | Change & resilience |
+| `Attune Government.dc.html` | Public sector |
+
+**Supporting pages and components:**
+
+| File | What it is |
+|---|---|
+| `Attune Integrations.dc.html` | Integrations |
+| `Attune Trust.dc.html` | Trust & security |
 | `AttuneNav.dc.html` | Mega-menu nav component (standalone preview) |
 | `AttuneFooter.dc.html` | Footer component (standalone preview) |
+
+Leadership development has no page of its own — the nav and footer link to
+`Attune Solutions.dc.html#leadership`, the section on the Solutions overview.
 
 ## How it's built
 
@@ -43,14 +69,17 @@ python3 -m http.server 8000
 
 ## Deploying
 
-`.github/workflows/pages.yml` publishes the repo root to GitHub Pages on every push to `main`
-(and to the current working branch), and can be run manually from the Actions tab.
+The site is live at <https://achyutkhanpara7.github.io/attune/>.
 
-One-time setup, needed before the first deploy succeeds:
-**Settings → Pages → Build and deployment → Source: GitHub Actions**. A workflow can't do this
-for you — creating the Pages site isn't something the built-in `GITHUB_TOKEN` is permitted to do.
-Once it's set, re-run the workflow and the site goes live at
-`https://achyutkhanpara7.github.io/attune/`.
+`.github/workflows/pages.yml` publishes the repo root to GitHub Pages on every push to one of
+the branches listed under `on.push.branches`, and can be run manually from the Actions tab.
+Add a branch to that list if you want it to deploy.
+
+Pages is already switched on for the repo (**Settings → Pages → Build and deployment →
+Source: GitHub Actions**). That step is manual and one-time — creating the Pages site isn't
+something the built-in `GITHUB_TOKEN` is permitted to do. If the `github-pages` environment has
+a deployment branch rule, a push from a branch outside that rule builds but can't deploy; merge
+into the default branch instead.
 
 `.nojekyll` is present so Pages serves the files verbatim instead of running them through Jekyll.
 
@@ -61,4 +90,5 @@ Once it's set, re-run the workflow and the site goes live at
 - `attune-brand-brief.md` — brand system, palette, voice, page content
 - `attune-nav-and-pages-prompts.md` — the nav map and per-page build prompts
 - `attune-hero.html` — an earlier standalone version of the hero
+- `screenshots/` — orbit-graphic explorations from the hero build
 - screenshots and reference images
